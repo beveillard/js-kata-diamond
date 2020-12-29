@@ -1,17 +1,24 @@
+const blank = "  ";
+const star = "* ";
+
 export function diamond(n) {
   let diamond = "";
 
-  for (let lineSize = 1; lineSize <= n; lineSize += 2)     diamond += printLine(lineSize, n);
-  for (let lineSize = n - 2; lineSize > 0; lineSize -= 2)  diamond += printLine(lineSize, n);
+  for (let index = 0; index < n; index++) {
+    diamond += printLine(index, n);
+  }
 
   console.log(diamond);
 
   return diamond;
 }
 
-export function printLine(lineSize, diamondSize) {
-  let blanks = printChars(' ', (diamondSize - lineSize) / 2);
-  let stars = printChars('*', lineSize);
+export function printLine(index, diamondSize) {
+  index = getEquivalentIndex(index, diamondSize);
+  let numberOfStars = 2 * index + 1;
+  let numberOfBlanks = (diamondSize - numberOfStars) / 2;
+  let blanks = printChars(blank, numberOfBlanks);
+  let stars = printChars(star, numberOfStars);
   return blanks + stars + blanks + "\n";
 }
 
@@ -19,8 +26,15 @@ export function printChars(char, length) {
   let string = "";
 
   for (let i = 0; i < length; i++) {
-    string += char + " ";
+    string += char;
   }
 
   return string;
+}
+
+export function getEquivalentIndex(index, diamondSize) {
+  if (index > diamondSize / 2) {
+    index = diamondSize - 1 - index;
+  }
+  return index;
 }
