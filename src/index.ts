@@ -14,8 +14,7 @@ export function diamond(n) {
 }
 
 export function printLine(index, diamondSize) {
-  index = getEquivalentIndex(index, diamondSize);
-  let numberOfStars = 2 * index + 1;
+  let numberOfStars = 2 * equivalentTopHalfIndex(index, diamondSize) + 1;
   let numberOfBlanks = (diamondSize - numberOfStars) / 2;
   let blanks = printChars(blank, numberOfBlanks);
   let stars = printChars(star, numberOfStars);
@@ -32,7 +31,7 @@ export function printChars(char, length) {
   return string;
 }
 
-export function getEquivalentIndex(index, diamondSize) {
+export function equivalentTopHalfIndex(index, diamondSize) {
   if (index > diamondSize / 2) {
     index = diamondSize - 1 - index;
   }
