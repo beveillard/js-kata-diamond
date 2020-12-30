@@ -1,4 +1,4 @@
-import { diamond, printLine, printChars, getEquivalentIndex } from ".";
+import { diamond, printLine, printChars, equivalentTopHalfIndex } from ".";
 
 describe("Test of printChars()", function () {
 
@@ -8,18 +8,18 @@ describe("Test of printChars()", function () {
 
 });
 
-describe("Test of getEquivalentIndex()", function () {
+describe("Test of equivalentTopHalfIndex()", function () {
 
   it("Should return 0", function () {
-    expect(getEquivalentIndex(0, 3)).toEqual(0);
+    expect(equivalentTopHalfIndex(0, 3)).toEqual(0);
   });
 
   it("Should return 1", function () {
-    expect(getEquivalentIndex(1, 3)).toEqual(1);
+    expect(equivalentTopHalfIndex(1, 3)).toEqual(1);
   });
 
   it("Should return 0", function () {
-    expect(getEquivalentIndex(2, 3)).toEqual(0);
+    expect(equivalentTopHalfIndex(2, 3)).toEqual(0);
   });
 
 
