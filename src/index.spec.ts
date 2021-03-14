@@ -1,12 +1,4 @@
-import { diamond, printLine, printChars, equivalentTopHalfIndex } from ".";
-
-describe("Test of printChars()", function () {
-
-  it("Should return '* * '", function () {
-    expect(printChars("* ", 2)).toEqual("* * ");
-  });
-
-});
+import { diamond, printLine, equivalentTopHalfIndex } from ".";
 
 describe("Test of equivalentTopHalfIndex()", function () {
 
@@ -40,19 +32,35 @@ describe("Test of printLine()", function () {
 describe("Test of diamond()", function () {
 
   it("Should return a diamond of size 0", function () {
-    expect(diamond(0)).toEqual("");
+    // When
+    const d = diamond(0);
+    // Then
+    console.log(d);
+    expect(d).toEqual("");
   });
 
   it("Should return a diamond of size 1", function () {
-    expect(diamond(1)).toEqual("* \n");
+    // When
+    const d = diamond(1);
+    // Then
+    console.log(d);
+    expect(d).toEqual("* \n");
   });
 
   it("Should return a diamond of size 3", function () {
-    expect(diamond(3)).toEqual("  *   \n* * * \n  *   \n");
+    // When
+    const d = diamond(3);
+    // Then
+    console.log(d);
+    expect(d).toEqual("  *   \n* * * \n  *   \n");
   });
 
   it("Should return a diamond of size 7", function () {
-    expect(diamond(7)).toEqual("      *       \n    * * *     \n  * * * * *   \n* * * * * * * \n  * * * * *   \n    * * *     \n      *       \n");
+    // When
+    const d = diamond(7);
+    // Then
+    console.log(d);
+    expect(d).toEqual("      *       \n    * * *     \n  * * * * *   \n* * * * * * * \n  * * * * *   \n    * * *     \n      *       \n");
   });
 
 });

@@ -1,5 +1,6 @@
-const blank = "  ";
-const star = "* ";
+const BLANK = "  ";
+const STAR = "* ";
+const EOL = "\n";
 
 export function diamond(n: number): string {
   let diamond = "";
@@ -8,27 +9,15 @@ export function diamond(n: number): string {
     diamond += printLine(index, n);
   }
 
-  console.log(diamond);
-
   return diamond;
 }
 
 export function printLine(index: number, diamondSize: number): string {
   const numberOfStars = 2 * equivalentTopHalfIndex(index, diamondSize) + 1;
   const numberOfBlanks = (diamondSize - numberOfStars) / 2;
-  const blanks = printChars(blank, numberOfBlanks);
-  const stars = printChars(star, numberOfStars);
-  return blanks + stars + blanks + "\n";
-}
-
-export function printChars(char: string, length: number): string {
-  let string = "";
-
-  for (let i = 0; i < length; i++) {
-    string += char;
-  }
-
-  return string;
+  const blanks = BLANK.repeat(numberOfBlanks);
+  const stars = STAR.repeat(numberOfStars);
+  return blanks + stars + blanks + EOL;
 }
 
 export function equivalentTopHalfIndex(index: number, diamondSize: number): number {
